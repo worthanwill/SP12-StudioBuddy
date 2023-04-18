@@ -1,22 +1,40 @@
 import React from 'react';
-import { View, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Splash from './components/splash';
+import Login from './components/login';
+import Register from './components/register';
+
+const Stack = createStackNavigator();
+
+const Auth = () => {
+    return(
+        <Stack.Navigator initialRouteName="Login">
+            <Stack.Screen
+                name="Login"
+                component={Login}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="Register"
+                component={Register}
+            />
+        </Stack.Navigator>
+    );
+}
 
 const App = () => {
-  return (
-    <NavigationContainer>
-      <View
-        style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        }}>
-        <Image
-            source={require('./src/assets/studio-buddy-logo.png')}
-            style={{width: '90%', resizeMode: 'contain', margin: 30}}
-            />
-      </View>
-    </NavigationContainer>
-  );
+    return (
+        <NavigationContainer>
+            <Stack.Navigator initialRouteName="Login">
+                <Stack.Screen
+                    name="Auth"
+                    component={Auth}
+                    options={{headerShown: false}}
+                />
+            </Stack.Navigator>
+        </NavigationContainer>
+    );
 };
+
 export default App;
