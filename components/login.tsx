@@ -19,7 +19,7 @@ export default class Login extends Component {
   }
   userLogin = () => {
     if(this.state.email === '' && this.state.password === '') {
-      Alert.alert('Enter details to signin!')
+      Alert.alert('Please enter your email and password.')
     } else {
       this.setState({
         isLoading: true,
@@ -71,7 +71,7 @@ export default class Login extends Component {
         <Text
           style={styles.loginText}
           onPress={() => this.props.navigation.navigate('Register')}>
-          Don't have account? Click here to signup
+          Don't have an account? Click here to register.
         </Text>
       </View>
     );

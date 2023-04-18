@@ -79,14 +79,14 @@ export default class Register extends Component {
               secureTextEntry={true}
             />
             <Button
-              color="#3740FE"
-              title="Signup"
+              color="#A0816C"
+              title="Register"
               onPress={() => this.registerUser()}
             />
             <Text
               style={styles.loginText}
               onPress={() => this.props.navigation.navigate('Login')}>
-              Already Registered? Click here to login
+              Already Registered? Click here to log in.
             </Text>
           </View>
         );
