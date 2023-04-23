@@ -1,9 +1,9 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Splash from './components/splash';
-import Login from './components/login';
-import Register from './components/register';
+import Login from './src/screens/login';
+import Register from './src/screens/register';
+import Mainmenu from './src/screens/Mainmenu';
 
 const Stack = createStackNavigator();
 
@@ -28,8 +28,8 @@ const App = () => {
         <NavigationContainer>
             <Stack.Navigator initialRouteName="Login">
                 <Stack.Screen
-                    name="Auth"
-                    component={Auth}
+                    name="Mainmenu"
+                    component={Mainmenu}
                     options={{headerShown: false}}
                 />
             </Stack.Navigator>
