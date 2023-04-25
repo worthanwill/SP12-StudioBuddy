@@ -26,11 +26,15 @@ const Auth = () => {
 const App = () => {
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="Login">
+            <Stack.Navigator initialRouteName="Mainmenu">
                 <Stack.Screen
                     name="Mainmenu"
                     component={Mainmenu}
                     options={{headerShown: false}}
+                />
+                <Stack.Screen
+                    name="Auth"
+                    component={Auth}
                 />
             </Stack.Navigator>
         </NavigationContainer>
