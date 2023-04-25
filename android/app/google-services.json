@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "955322215434",
+    "project_id": "studio-buddy-aef32",
+    "storage_bucket": "studio-buddy-aef32.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:955322215434:android:1e45978ccceb3df9c683f3",
+        "android_client_info": {
+          "package_name": "com.studiobuddy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "955322215434-o3rcnfbbbn7h34c4qbdunagfafteb6kl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEh43GxxbOrnW09MfCpzIThFCTaXsdBW0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "955322215434-o3rcnfbbbn7h34c4qbdunagfafteb6kl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

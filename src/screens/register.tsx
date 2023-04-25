@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TextInput, Button, Alert, ActivityIndicator } from 'react-native';
 import firebase from '../database/firebase';
+import auth from '@react-native-firebase/auth';
 
 export default class Register extends Component {
 
     constructor() {
         super();
         this.state = {
-            name: '',
+            displayName: '',
             email: '',
             password: '',
             isLoading: false
@@ -28,17 +29,16 @@ export default class Register extends Component {
             this.setState({
                 isLoading: true,
             })
-            firebase
-            .auth()
+            auth()
             .createUserWithEmailAndPassword(this.state.email, this.state.password)
             .then((res) => {
                 res.user.updateProfile({
-                    name: this.state.name
+                    displayName: this.state.displayName
                 })
                 console.log('Registration successful!')
                 this.setState({
                     isLoading: false,
-                    name: '',
+                    displayName: '',
                     email: '',
                     password: ''
                 })
@@ -61,7 +61,7 @@ export default class Register extends Component {
             <TextInput
               style={styles.inputStyle}
               placeholder="Name"
-              value={this.state.name}
+              value={this.state.displayName}
               onChangeText={(val) => this.updateInputVal(val, 'displayName')}
             />
             <TextInput

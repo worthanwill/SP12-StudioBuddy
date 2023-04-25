@@ -7,6 +7,6 @@ Studio Buddy was originally developed by Kennesaw State University students duri
 3. Run Windows Powershell as administrator. In Powershell, navigate to the project directory and run "npm install react-native". This will take some time.
 4. There are a few extra dependencies that also need to be installed on to the project:
 - React Navigation: In the project directory, run "npm install @react-navigation/native". Afterwards, run "npm install react-native-screens react-native-safe-area-context" and "npm install @react-navigation/stack".
-- Firebase: In the project directory, run "npm install firebase".
+- Firebase: In the project directory, run "npm install firebase". Afterwards, run "npm install @react-native-firebase/app@latest", "npm install @react-native-firebase/auth", and "npm install @react-native-firebase/firestore".
 - Table Component: In the project directory, run "npm install react-native-table-component".
 5. In Powershell, run "npx react-native start". Metro will start and allow you to install and run the app in a device/emulator of your choice.
