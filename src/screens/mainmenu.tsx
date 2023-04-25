@@ -10,15 +10,15 @@ const Mainmenu = (props) => {
         style={styles.image}>
       </Image>
       <View style={styles.row1}>
-        <TouchableOpacity style={styles.studiosContainer} onPress={() => props.navigation.navigate('Auth')}>
+        <TouchableOpacity style={styles.studiosContainer} onPress={() => props.navigation.navigate('Studios')}>
             <Text style={styles.studiosText}>Studios</Text>
             </TouchableOpacity>
-        <TouchableOpacity style={styles.exercisesContainer} onPress={() => props.navigation.navigate('Auth')}>
+        <TouchableOpacity style={styles.exercisesContainer} onPress={() => props.navigation.navigate('Exercises')}>
             <Text style={styles.exercisesText}>Exercises</Text>
             </TouchableOpacity>
       </View>
       <View style={styles.row2}>
-        <TouchableOpacity style={styles.accountContainer} onPress={() => props.navigation.navigate('Auth')}>
+        <TouchableOpacity style={styles.accountContainer} onPress={() => props.navigation.navigate('Account')}>
             <Text style={styles.accountText}>Account</Text>
             </TouchableOpacity>
         <TouchableOpacity style={styles.calendarContainer} onPress={() => props.navigation.navigate('Auth')}>
