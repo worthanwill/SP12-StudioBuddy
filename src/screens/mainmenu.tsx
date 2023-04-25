@@ -1,25 +1,29 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Image } from "react-native";
-import StudiosButton from "../components/StudiosButton";
-import ExercisesButton from "../components/ExercisesButton";
-import AccountButton from "../components/AccountButton";
-import CalendarButton from "../components/CalendarButton";
+import { StyleSheet, View, Image, TouchableOpacity, Text } from "react-native";
 
-const Mainmenu = () => {
+const Mainmenu = (props) => {
   return (
     <View style={styles.container}>
       <Image
         source={require("../assets/images/studio-buddy-logo2.png")}
         resizeMode="contain"
-        style={styles.image}
-      ></Image>
-      <View style={styles.materialButtonGrey1Row}>
-        <StudiosButton style={styles.materialButtonGrey1}></StudiosButton>
-        <ExercisesButton style={styles.materialButtonGrey2}></ExercisesButton>
+        style={styles.image}>
+      </Image>
+      <View style={styles.row1}>
+        <TouchableOpacity style={styles.studiosContainer} onPress={() => props.navigation.navigate('Auth')}>
+            <Text style={styles.studiosText}>Studios</Text>
+            </TouchableOpacity>
+        <TouchableOpacity style={styles.exercisesContainer} onPress={() => props.navigation.navigate('Auth')}>
+            <Text style={styles.exercisesText}>Exercises</Text>
+            </TouchableOpacity>
       </View>
-      <View style={styles.materialButtonGrey3Row}>
-        <AccountButton style={styles.materialButtonGrey3}></AccountButton>
-        <CalendarButton style={styles.materialButtonGrey4}></CalendarButton>
+      <View style={styles.row2}>
+        <TouchableOpacity style={styles.accountContainer} onPress={() => props.navigation.navigate('Auth')}>
+            <Text style={styles.accountText}>Account</Text>
+            </TouchableOpacity>
+        <TouchableOpacity style={styles.calendarContainer} onPress={() => props.navigation.navigate('Auth')}>
+            <Text style={styles.calendarText}>Calendar</Text>
+            </TouchableOpacity>
       </View>
     </View>
   );
@@ -36,31 +40,111 @@ const styles = StyleSheet.create({
     marginTop: 96,
     marginLeft: 44
   },
-  materialButtonGrey1: {
-    height: 135,
-    width: 135
-  },
-  materialButtonGrey2: {
+  studiosContainer: {
     height: 135,
     width: 135,
-    marginLeft: 17
+    backgroundColor: "rgba(160,129,108,1)",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+    borderRadius: 2,
+    shadowColor: "#000",
+    shadowOffset: {
+     width: 0,
+     height: 1
+    },
+    shadowOpacity: 0.35,
+    shadowRadius: 5,
+    elevation: 2,
+    minWidth: 88,
+    paddingLeft: 16,
+    paddingRight: 16
   },
-  materialButtonGrey1Row: {
+  studiosText: {
+      color: "rgba(255,255,255,1)",
+      fontSize: 20
+    },
+  exercisesContainer: {
+    height: 135,
+    width: 135,
+    marginLeft: 17,
+    backgroundColor: "rgba(160,129,108,1)",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+    borderRadius: 2,
+    shadowColor: "#000",
+    shadowOffset: {
+       width: 0,
+       height: 1
+    },
+    shadowOpacity: 0.35,
+    shadowRadius: 5,
+    elevation: 2,
+    minWidth: 88,
+    paddingLeft: 16,
+    paddingRight: 16
+  },
+  exercisesText: {
+      color: "rgba(255,255,255,1)",
+      fontSize: 20
+  },
+  row1: {
     height: 135,
     flexDirection: "row",
     marginLeft: 44,
     marginRight: 44
   },
-  materialButtonGrey3: {
-    height: 135,
-    width: 135
-  },
-  materialButtonGrey4: {
+  accountContainer: {
     height: 135,
     width: 135,
-    marginLeft: 17
+    backgroundColor: "rgba(160,129,108,1)",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "row",
+        borderRadius: 2,
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 1
+        },
+    shadowOpacity: 0.35,
+        shadowRadius: 5,
+        elevation: 2,
+        minWidth: 88,
+        paddingLeft: 16,
+        paddingRight: 16
   },
-  materialButtonGrey3Row: {
+  accountText: {
+      color: "rgba(255,255,255,1)",
+      fontSize: 20
+  },
+  calendarContainer: {
+    height: 135,
+    width: 135,
+    marginLeft: 17,
+    backgroundColor: "rgba(160,129,108,1)",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "row",
+        borderRadius: 2,
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 1
+        },
+        shadowOpacity: 0.35,
+        shadowRadius: 5,
+        elevation: 2,
+        minWidth: 88,
+        paddingLeft: 16,
+        paddingRight: 16
+  },
+  calendarText: {
+      color: "rgba(255,255,255,1)",
+      fontSize: 20
+  },
+  row2: {
     height: 135,
     flexDirection: "row",
     marginTop: 16,
