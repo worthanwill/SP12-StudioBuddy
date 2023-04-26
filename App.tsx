@@ -4,7 +4,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Login from './src/screens/login';
 import Register from './src/screens/register';
 import Mainmenu from './src/screens/Mainmenu';
-import Studios from './src/screens/studios';
+import StudiosMain from './src/screens/studiosmain';
+import StudiosCreate from './src/screens/studioscreate';
 import Exercises from './src/screens/exercises';
 import Account from './src/screens/account';
 
@@ -21,6 +22,23 @@ const Auth = () => {
             <Stack.Screen
                 name="Register"
                 component={Register}
+            />
+        </Stack.Navigator>
+    );
+}
+
+const Studios = () => {
+    return(
+        <Stack.Navigator initialRouteName="StudiosMain">
+            <Stack.Screen
+                name="StudiosMain"
+                component={StudiosMain}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="StudiosCreate"
+                component={StudiosCreate}
+                options={{title: 'Create New Studio'}}
             />
         </Stack.Navigator>
     );
