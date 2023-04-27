@@ -3,11 +3,13 @@ import { StyleSheet, View, Image, TouchableOpacity, Text, ScrollView, Button } f
 import { Table, TableWrapper, Row, Cell } from 'react-native-table-component';
 import firestore from '@react-native-firebase/firestore';
 
+//Function to render the StudiosMain screen
 const StudiosMain = (props) => {
     const tableHead = [' Studio ID', ' Description']
     const widthArray = [75, 285]
     const [tableData, setTableData] = useState([])
 
+    //This populates tableData with arrays representing all studios in the database
     useEffect(() => {
         const StudioCollection = firestore().collection('studios');
         StudioCollection.get().then(querySnapshot => {
@@ -15,13 +17,13 @@ const StudiosMain = (props) => {
                 const rowData = [];
                 rowData.push(querySnapshot.docs[i].get('studioid'));
                 rowData.push(querySnapshot.docs[i].get('description'));
-                console.log(rowData);
+                //console.log(rowData);
                 setTableData(oldData => [...oldData, rowData]);
             }
         });
     }, []);
 
-    console.log(tableData);
+    //console.log(tableData);
 
     return (
     <View style={styles.container}>

@@ -9,4 +9,5 @@ Studio Buddy was originally developed by Kennesaw State University students duri
 - React Navigation: In the project directory, run "npm install @react-navigation/native". Afterwards, run "npm install react-native-screens react-native-safe-area-context" and "npm install @react-navigation/stack".
 - Firebase: In the project directory, run "npm install firebase". Afterwards, run "npm install @react-native-firebase/app@latest", "npm install @react-native-firebase/auth", and "npm install @react-native-firebase/firestore".
 - Table Component: In the project directory, run "npm install react-native-table-component".
+- Dropdown Select List: In the project directory, run "npm install react-native-dropdown-select-list".
 5. In Powershell, run "npx react-native start". Metro will start and allow you to install and run the app in a device/emulator of your choice.

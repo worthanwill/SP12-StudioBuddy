@@ -6,11 +6,12 @@ import Register from './src/screens/register';
 import Mainmenu from './src/screens/Mainmenu';
 import StudiosMain from './src/screens/studiosmain';
 import StudiosCreate from './src/screens/studioscreate';
-import Exercises from './src/screens/exercises';
+import ExercisesMain from './src/screens/exercisesmain';
 import Account from './src/screens/account';
 
 const Stack = createStackNavigator();
 
+//auth stack
 const Auth = () => {
     return(
         <Stack.Navigator initialRouteName="Login">
@@ -27,6 +28,7 @@ const Auth = () => {
     );
 }
 
+//studios stack
 const Studios = () => {
     return(
         <Stack.Navigator initialRouteName="StudiosMain">
@@ -44,6 +46,7 @@ const Studios = () => {
     );
 }
 
+//main
 const App = () => {
     return (
         <NavigationContainer>
@@ -63,8 +66,8 @@ const App = () => {
                     component={Studios}
                 />
                 <Stack.Screen
-                    name="Exercises"
-                    component={Exercises}
+                    name="ExercisesMain"
+                    component={ExercisesMain}
                 />
                 <Stack.Screen
                     name="Account"
