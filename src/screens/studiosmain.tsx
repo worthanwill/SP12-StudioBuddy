@@ -56,7 +56,7 @@ const StudiosMain = (props) => {
                     title="Create New Studio"
                     onPress={() => props.navigation.navigate('StudiosCreate')}/>
             </View>
-    </View>
+        </View>
     );
 }
 

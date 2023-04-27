@@ -7,6 +7,8 @@ import Mainmenu from './src/screens/Mainmenu';
 import StudiosMain from './src/screens/studiosmain';
 import StudiosCreate from './src/screens/studioscreate';
 import ExercisesMain from './src/screens/exercisesmain';
+import ExercisesCreate from './src/screens/exercisescreate';
+import ExercisesView from './src/screens/exercisesview';
 import Account from './src/screens/account';
 
 const Stack = createStackNavigator();
@@ -46,6 +48,29 @@ const Studios = () => {
     );
 }
 
+//exercises stack
+const Exercises = () => {
+    return(
+        <Stack.Navigator initialRouteName="ExercisesMain">
+            <Stack.Screen
+                name="ExercisesMain"
+                component={ExercisesMain}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="ExercisesCreate"
+                component={ExercisesCreate}
+                options={{title: 'Create New Exercise'}}
+            />
+            <Stack.Screen
+                name="ExercisesView"
+                component={ExercisesView}
+                options={{title: 'View'}}
+            />
+        </Stack.Navigator>
+    );
+}
+
 //main
 const App = () => {
     return (
@@ -66,8 +91,8 @@ const App = () => {
                     component={Studios}
                 />
                 <Stack.Screen
-                    name="ExercisesMain"
-                    component={ExercisesMain}
+                    name="Exercises"
+                    component={Exercises}
                 />
                 <Stack.Screen
                     name="Account"
