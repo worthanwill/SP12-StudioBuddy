@@ -9,7 +9,7 @@ const CreateNewExerciseNav = (props, selectedStudio) => {
     if (selectedStudio===''){
         Alert.alert("Please select a studio.");
     } else {
-        props.navigation.navigate('Mainmenu');
+        props.navigation.navigate('ExercisesCreate');
     };
 }
 
@@ -91,7 +91,7 @@ const ExercisesMain = (props) => {
                     data={exercisesList}
                     renderItem={({item}) => <Text
                         style={styles.exerciseText}
-                        onPress={() => props.navigation.navigate('Mainmenu')}
+                        onPress={() => props.navigation.navigate('ExercisesView')}
                         >{item}</Text>}
                     />
             </View>
