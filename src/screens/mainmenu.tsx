@@ -13,7 +13,7 @@ const Mainmenu = (props) => {
         <TouchableOpacity style={styles.studiosContainer} onPress={() => props.navigation.navigate('Studios')}>
             <Text style={styles.studiosText}>Studios</Text>
             </TouchableOpacity>
-        <TouchableOpacity style={styles.exercisesContainer} onPress={() => props.navigation.navigate('Exercises')}>
+        <TouchableOpacity style={styles.exercisesContainer} onPress={() => props.navigation.navigate('ExercisesMain')}>
             <Text style={styles.exercisesText}>Exercises</Text>
             </TouchableOpacity>
       </View>
