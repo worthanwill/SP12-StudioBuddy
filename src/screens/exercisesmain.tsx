@@ -9,7 +9,9 @@ const CreateNewExerciseNav = (props, selectedStudio) => {
     if (selectedStudio===''){
         Alert.alert("Please select a studio.");
     } else {
-        props.navigation.navigate('ExercisesCreate');
+        props.navigation.navigate('ExercisesCreate', {
+            studioID: selectedStudio
+        });
     };
 }
 
