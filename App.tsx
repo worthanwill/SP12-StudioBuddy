@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
 import Login from './src/screens/login';
 import Register from './src/screens/register';
-import Mainmenu from './src/screens/Mainmenu';
+import Mainmenu from './src/screens/mainmenu';
 import StudiosMain from './src/screens/studiosmain';
 import StudiosCreate from './src/screens/studioscreate';
 import ExercisesMain from './src/screens/exercisesmain';
