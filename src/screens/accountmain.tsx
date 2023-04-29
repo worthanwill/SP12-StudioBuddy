@@ -37,10 +37,6 @@ const AccountMain = (props) => {
                 <Text>{user.email}</Text>
                 <Text style={styles.headerText}>Name</Text>
                 <Text>{user.displayName}</Text>
-                <Text style={styles.headerText}>Verified?</Text>
-                <Text>{user.emailVerified}</Text>
-                <Text style={styles.headerText}>Phone Number</Text>
-                <Text>{user.phoneNumber}</Text>
             </View>
             <View style={styles.footer}>
                 <Button
