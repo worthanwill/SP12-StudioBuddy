@@ -2,6 +2,7 @@ import React, { Component, useState, useEffect } from "react";
 import { StyleSheet, View, Alert, TouchableOpacity, Text, TextInput, ScrollView, Button } from "react-native";
 import firestore from '@react-native-firebase/firestore';
 
+//Function that creates a new exercise and puts it in the correct collection
 const CreateNewExercise = (path, newTitle, newDesc, newDueDate, newStart, newGoal, newVideoLink) => {
     if (newTitle === '' || newDesc === '' || newDueDate === '' || newStart === '' || newGoal === ''){
         Alert.alert('Please fill out all required fields.')
@@ -24,6 +25,7 @@ const CreateNewExercise = (path, newTitle, newDesc, newDueDate, newStart, newGoa
     }
 }
 
+//Function to render the ExercisesCreate screen
 const ExercisesCreate = (props) => {
     const studio = props.route.params.studioID;
     const [exercisesPath, setExercisesPath] = useState('');

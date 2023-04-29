@@ -15,6 +15,13 @@ const CreateNewExerciseNav = (props, selectedStudio) => {
     };
 }
 
+const ExercisesViewNav = (props, selectedStudio, selectedExercise) => {
+    props.navigation.navigate('ExercisesView', {
+        studioID: selectedStudio,
+        exerciseTitle: selectedExercise.item
+    });
+}
+
 //Function to render the ExercisesMain screen
 const ExercisesMain = (props) => {
     const [listSelected, setListSelected] = useState(''); //stores selected studio from list
@@ -93,7 +100,7 @@ const ExercisesMain = (props) => {
                     data={exercisesList}
                     renderItem={({item}) => <Text
                         style={styles.exerciseText}
-                        onPress={() => props.navigation.navigate('ExercisesView')}
+                        onPress={() => ExercisesViewNav(props, listSelected, {item})}
                         >{item}</Text>}
                     />
             </View>
@@ -115,6 +122,7 @@ const styles = StyleSheet.create({
       },
     exercisesContainer: {
         flex: 1,
+        gap: 10
       },
     titleText: {
         textAlign: 'left',
@@ -123,7 +131,8 @@ const styles = StyleSheet.create({
     exerciseText: {
         color: "rgba(255,255,255,1)",
         backgroundColor: "#A0816C",
-        padding: 10
+        padding: 10,
+        gap: 10
       },
     footer: {
         height: 80

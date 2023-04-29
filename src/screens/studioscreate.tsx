@@ -33,7 +33,7 @@ const CreateNewStudio = (newID, newDesc) => {
             StudioCollection.doc(newID).collection('exercises').doc('Sample Exercise').set({
                 title: "Sample Exercise",
                 description: "This is a sample exercise!",
-                duedate: firestore.FieldValue.serverTimestamp(),
+                duedate: "N/A",
                 startingtempo: 100,
                 goaltempo: 120,
                 videolink: "",
