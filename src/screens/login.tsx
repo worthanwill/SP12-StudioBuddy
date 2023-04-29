@@ -3,6 +3,11 @@ import { StyleSheet, Text, View, Image, TextInput, Button, Alert, ActivityIndica
 import firebase from '../database/firebase';
 import auth from '@react-native-firebase/auth';
 
+/*
+Note:
+Auth screens were made using classes instead of hooks.
+*/
+//class to handle login screen
 export default class Login extends Component {
 
   constructor() {
@@ -18,7 +23,9 @@ export default class Login extends Component {
     state[prop] = val;
     this.setState(state);
   }
-  userLogin = () => {
+
+  //function to log user in
+  userLogin = (props) => {
     if(this.state.email === '' && this.state.password === '') {
       Alert.alert('Please enter your email and password.')
     } else {
@@ -30,6 +37,7 @@ export default class Login extends Component {
       .then((res) => {
         console.log(res)
         console.log('Login successful!')
+        this.props.navigation.navigate('Mainmenu')
         this.setState({
           isLoading: false,
           email: '',
@@ -39,6 +47,8 @@ export default class Login extends Component {
       .catch(error => this.setState({ errorMessage: error.message }))
     }
   }
+
+  //render screen
   render() {
     if(this.state.isLoading){
       return(

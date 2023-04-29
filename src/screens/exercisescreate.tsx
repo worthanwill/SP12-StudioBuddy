@@ -1,29 +1,6 @@
 import React, { Component, useState, useEffect } from "react";
-import { StyleSheet, View, Alert, TouchableOpacity, Text, TextInput, ScrollView, Button } from "react-native";
+import { StyleSheet, View, Alert, Text, TextInput, ScrollView, Button } from "react-native";
 import firestore from '@react-native-firebase/firestore';
-
-//Function that creates a new exercise and puts it in the correct collection
-const CreateNewExercise = (path, newTitle, newDesc, newDueDate, newStart, newGoal, newVideoLink) => {
-    if (newTitle === '' || newDesc === '' || newDueDate === '' || newStart === '' || newGoal === ''){
-        Alert.alert('Please fill out all required fields.')
-    }
-    else {
-        return(
-            path.doc(newTitle).set({
-                title: newTitle,
-                description: newDesc,
-                duedate: newDueDate,
-                startingtempo: newStart,
-                goaltempo: newGoal,
-                videolink: newVideoLink,
-            })
-            .then(() => {Alert.alert('Exercise created!')}
-            )
-            .catch(error => console.error(error)
-            )
-        );
-    }
-}
 
 //Function to render the ExercisesCreate screen
 const ExercisesCreate = (props) => {
@@ -36,10 +13,33 @@ const ExercisesCreate = (props) => {
     const [goaltempo, setGoalTempo] = useState('');
     const [videolink, setVideoLink] = useState('');
 
+    //get exercise path
     useEffect(() => {
         const newpath = firestore().collection('studios').doc(studio).collection('exercises');
         setExercisesPath(newpath);
     }, []);
+
+    //Function that creates a new exercise and puts it in the correct collection
+    function CreateNewExercise(path, newTitle, newDesc, newDueDate, newStart, newGoal, newVideoLink){
+        if (newTitle === '' || newDesc === '' || newDueDate === '' || newStart === '' || newGoal === ''){
+            Alert.alert('Please fill out all required fields.');
+        }
+        else {
+            path.doc(newTitle).set({
+                title: newTitle,
+                description: newDesc,
+                duedate: newDueDate,
+                startingtempo: newStart,
+                goaltempo: newGoal,
+                videolink: newVideoLink,
+            })
+            .then(() => {Alert.alert('Exercise created!')}
+            )
+            .catch(error => console.error(error)
+            );
+            props.navigation.navigate('ExercisesMain');
+        };
+    };
 
     return (
         <View style={styles.container}>

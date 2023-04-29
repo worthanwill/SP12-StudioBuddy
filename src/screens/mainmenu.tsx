@@ -1,7 +1,16 @@
 import React, { Component } from "react";
 import { StyleSheet, View, Image, TouchableOpacity, Text } from "react-native";
+import auth from '@react-native-firebase/auth';
 
+//Function to render main menu
 const Mainmenu = (props) => {
+
+  //Function to sign out current user
+  function SignOutButtonNav(){
+      auth().signOut()
+      .then(props.navigation.navigate('Auth'));
+  };
+
   return (
     <View style={styles.container}>
       <Image
@@ -21,8 +30,8 @@ const Mainmenu = (props) => {
         <TouchableOpacity style={styles.accountContainer} onPress={() => props.navigation.navigate('Account')}>
             <Text style={styles.accountText}>Account</Text>
             </TouchableOpacity>
-        <TouchableOpacity style={styles.calendarContainer} onPress={() => props.navigation.navigate('Auth')}>
-            <Text style={styles.calendarText}>Calendar</Text>
+        <TouchableOpacity style={styles.calendarContainer} onPress={() => SignOutButtonNav()}>
+            <Text style={styles.calendarText}>Sign Out</Text>
             </TouchableOpacity>
       </View>
     </View>
@@ -38,7 +47,7 @@ const styles = StyleSheet.create({
     width: 288,
     height: 289,
     marginTop: 96,
-    marginLeft: 44
+    alignSelf: 'center'
   },
   studiosContainer: {
     height: 135,
@@ -67,7 +76,7 @@ const styles = StyleSheet.create({
   exercisesContainer: {
     height: 135,
     width: 135,
-    marginLeft: 17,
+    marginLeft: 30,
     backgroundColor: "rgba(160,129,108,1)",
     justifyContent: "center",
     alignItems: "center",
@@ -92,8 +101,7 @@ const styles = StyleSheet.create({
   row1: {
     height: 135,
     flexDirection: "row",
-    marginLeft: 44,
-    marginRight: 44
+    marginLeft: 45
   },
   accountContainer: {
     height: 135,
@@ -122,7 +130,7 @@ const styles = StyleSheet.create({
   calendarContainer: {
     height: 135,
     width: 135,
-    marginLeft: 17,
+    marginLeft: 30,
     backgroundColor: "rgba(160,129,108,1)",
         justifyContent: "center",
         alignItems: "center",
@@ -147,9 +155,8 @@ const styles = StyleSheet.create({
   row2: {
     height: 135,
     flexDirection: "row",
-    marginTop: 16,
-    marginLeft: 44,
-    marginRight: 44
+    marginTop: 30,
+    marginLeft: 45
   }
 });
 

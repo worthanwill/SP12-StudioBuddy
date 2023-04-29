@@ -3,6 +3,11 @@ import { StyleSheet, Text, View, TextInput, Button, Alert, ActivityIndicator } f
 import firebase from '../database/firebase';
 import auth from '@react-native-firebase/auth';
 
+/*
+Note:
+Auth screens were made using classes instead of hooks.
+*/
+//class to handle user registration
 export default class Register extends Component {
 
     constructor() {
@@ -11,7 +16,6 @@ export default class Register extends Component {
             displayName: '',
             email: '',
             password: '',
-            isLoading: false
         }
     }
 
@@ -21,33 +25,36 @@ export default class Register extends Component {
         this.setState(state);
     }
 
+    //function to register a new user
     registerUser = () => {
         if(this.state.email === '' && this.state.password === ''){
             Alert.alert('Enter account details to register!')
         }
         else{
-            this.setState({
-                isLoading: true,
-            })
             auth()
             .createUserWithEmailAndPassword(this.state.email, this.state.password)
-            .then((res) => {
+            .then(() => {
                 res.user.updateProfile({
                     displayName: this.state.displayName
                 })
                 console.log('Registration successful!')
                 this.setState({
-                    isLoading: false,
                     displayName: '',
                     email: '',
                     password: ''
                 })
-                this.props.navigation.navigate('Login')
             })
             .catch(error => this.setState({ errorMessage: error.message }))
+            .then(() => {
+                Alert.alert('Registration successful!')
+            })
+            .then(() => {
+                this.props.navigation.navigate('Login')
+            })
         }
     }
 
+    //render screen
     render() {
         if(this.state.isLoading){
           return(
@@ -113,16 +120,6 @@ export default class Register extends Component {
         color: '#3740FE',
         marginTop: 25,
         textAlign: 'center'
-      },
-      preloader: {
-        left: 0,
-        right: 0,
-        top: 0,
-        bottom: 0,
-        position: 'absolute',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#fff'
       }
     });
 

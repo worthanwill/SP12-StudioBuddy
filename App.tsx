@@ -9,7 +9,8 @@ import StudiosCreate from './src/screens/studioscreate';
 import ExercisesMain from './src/screens/exercisesmain';
 import ExercisesCreate from './src/screens/exercisescreate';
 import ExercisesView from './src/screens/exercisesview';
-import Account from './src/screens/account';
+import AccountMain from './src/screens/accountmain';
+import AccountEdit from './src/screens/accountedit';
 
 const Stack = createStackNavigator();
 
@@ -71,11 +72,30 @@ const Exercises = () => {
     );
 }
 
+//account stack
+const Account = () => {
+    return(
+        <Stack.Navigator initialRouteName="AccountMain">
+            <Stack.Screen
+                name="AccountMain"
+                component={AccountMain}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="AccountEdit"
+                component={AccountEdit}
+                options={{title: 'Edit Account Info'}}
+            />
+        </Stack.Navigator>
+    );
+}
+
 //main
+//change the initialRouteName to "Mainmenu" if you want to skip auth during testing
 const App = () => {
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="Mainmenu">
+            <Stack.Navigator initialRouteName="Auth">
                 <Stack.Screen
                     name="Mainmenu"
                     component={Mainmenu}

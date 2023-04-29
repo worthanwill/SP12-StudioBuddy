@@ -2,22 +2,26 @@ import React, { Component, useState, useEffect } from "react";
 import { StyleSheet, View, Alert, Text, TextInput, Button } from "react-native";
 import firestore from '@react-native-firebase/firestore';
 
-/*
-Function that handles creation of new studios.
-Note:
-Firebase documents have an id value. If you create documents via the add() function, the id
-value is randomly generated. The only way to access this value in React is via a documentSnapshot.
-For convenience, the CreateNewStudio function uses the set() function to make the document id
-value and the studioid field the same.
-*/
-const CreateNewStudio = (newID, newDesc) => {
-    const StudioCollection = firestore().collection('studios');
+//Function to render the StudiosCreate screen
+const StudiosCreate = (props) => {
+    const [idText, setIDText] = useState('');
+    const [descText, setDescText] = useState('');
 
-    if (newID === '' || newDesc === ''){
-        Alert.alert('Please enter all studio details.')
-    }
-    else {
-        return(
+    /*
+    Function that handles creation of new studios.
+    Note:
+    Firebase documents have an id value. If you create documents via the add() function, the id
+    value is randomly generated. The only way to access this value in React is via a documentSnapshot.
+    For convenience, the CreateNewStudio function uses the set() function to make the document id
+    value and the studioid field the same.
+    */
+    function CreateNewStudio(newID, newDesc) {
+        const StudioCollection = firestore().collection('studios');
+
+        if (newID === '' || newDesc === ''){
+            Alert.alert('Please enter all studio details.')
+        }
+        else {
             //doc for new studio
             StudioCollection.doc(newID).set({
                 studioid: newID,
@@ -26,7 +30,7 @@ const CreateNewStudio = (newID, newDesc) => {
             .then(() => {Alert.alert('Studio created!')}
             )
             .catch(error => console.error(error)
-            ),
+            );
 
             //creating a sample exercise for the new studio
             //this also creates the 'exercises' collection within the new studio doc
@@ -39,15 +43,9 @@ const CreateNewStudio = (newID, newDesc) => {
                 videolink: "",
             })
             .catch(error => console.error(error)
-            )
-        );
-    }
-}
-
-//Function to render the StudiosCreate screen
-const StudiosCreate = (props) => {
-    const [idText, setIDText] = useState('');
-    const [descText, setDescText] = useState('');
+            );
+        };
+    };
 
     return (
         <View style={styles.container}>

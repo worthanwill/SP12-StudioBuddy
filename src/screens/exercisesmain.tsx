@@ -1,5 +1,5 @@
 import React, { Component, useState, useEffect } from "react";
-import { StyleSheet, View, Image, TouchableOpacity, Text, Alert, FlatList, Button } from "react-native";
+import { StyleSheet, View, ScrollView, Text, Alert, FlatList, Button } from "react-native";
 import { SelectList } from 'react-native-dropdown-select-list';
 import firestore from '@react-native-firebase/firestore';
 
