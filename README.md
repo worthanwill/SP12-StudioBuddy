@@ -1,6 +1,6 @@
 # SP-12 Music Practice Scheduling - Studio Buddy
 ## About
-Studio Buddy was originally developed by Kennesaw State University students during Fall 2022. This new repository contains the restructured project developed during Spring 2023.
+Studio Buddy was originally developed by Kennesaw State University students during Fall 2022. This new repository contains the restructured project developed during Spring 2023. Original code is found in App.tsx and the src folder. Currently only works with Android, as iOS has not been configured to work with Firebase yet.
 ## Installation
 1. Install React Native on your machine. Follow the instructions for React Native CLI Quickstart located [here](https://reactnative.dev/docs/environment-setup).
 2. Download this project to a directory of your choice.
